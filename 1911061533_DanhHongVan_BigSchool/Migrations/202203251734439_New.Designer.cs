@@ -7,13 +7,13 @@ namespace _1911061533_DanhHongVan_BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CretaTableCourse : IMigrationMetadata
+    public sealed partial class New : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CretaTableCourse));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(New));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203210224107_CretaTableCourse"; }
+            get { return "202203251734439_New"; }
         }
         
         string IMigrationMetadata.Source
