@@ -7,13 +7,13 @@ namespace _1911061533_DanhHongVan_BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddAttendance : IMigrationMetadata
+    public sealed partial class Update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAttendance));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Update));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203251911336_AddAttendance"; }
+            get { return "202203271706072_Update"; }
         }
         
         string IMigrationMetadata.Source

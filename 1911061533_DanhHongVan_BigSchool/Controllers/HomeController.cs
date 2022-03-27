@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using _1911061533_DanhHongVan_BigSchool.Models;
 using System.Data.Entity;
-
+using _1911061533_DanhHongVan_BigSchool.ViewModels;
 
 namespace _1911061533_DanhHongVan_BigSchool.Controllers
 {
@@ -42,7 +42,13 @@ namespace _1911061533_DanhHongVan_BigSchool.Controllers
                 .Where(c => c.DateTime > DateTime.Now);
 
 
-            return View(upcommingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
         
     }

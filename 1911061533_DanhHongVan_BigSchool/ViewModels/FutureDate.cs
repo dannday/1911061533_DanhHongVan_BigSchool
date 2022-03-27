@@ -14,6 +14,8 @@ namespace _1911061533_DanhHongVan_BigSchool.ViewModels
     {
         public override bool IsValid(object value)
         {
+            
+
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value), "dd/M/yyyy",
              CultureInfo.CurrentCulture,
@@ -21,7 +23,7 @@ namespace _1911061533_DanhHongVan_BigSchool.ViewModels
              out dateTime);
 
 
-           return (isValid && dateTime > DateTime.Now);
+            return (isValid && dateTime > DateTime.Now);
         }
     }
 

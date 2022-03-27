@@ -3,6 +3,7 @@ using _1911061533_DanhHongVan_BigSchool.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,7 @@ namespace _1911061533_DanhHongVan_BigSchool.Controllers
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly object followingDto;
 
         public CoursesController()
         {
@@ -54,13 +56,53 @@ namespace _1911061533_DanhHongVan_BigSchool.Controllers
             _dbContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
-
-
-            
-
-            
+ 
         }
 
+
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var courses = _dbContext.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
+
+
+        [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var lecturers = _dbContext.Followings
+                .Where(a => a.FollowerId == userId)
+                .Select(a => a.Lecturer)
+                //.Include(l => l.Lecturer)
+                //.Include(l => l.Course)
+                //.Include(l => l.Catogory)
+                .ToList();
+
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = (IEnumerable<Course>)lecturers,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
 
 
 

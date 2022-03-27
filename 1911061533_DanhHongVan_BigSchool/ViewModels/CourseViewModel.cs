@@ -24,9 +24,10 @@ namespace _1911061533_DanhHongVan_BigSchool.ViewModels
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
 
-        public DateTime GetDateTime() {
+        public DateTime GetDateTime()
+        {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
-                }
+        }
     }
 
    

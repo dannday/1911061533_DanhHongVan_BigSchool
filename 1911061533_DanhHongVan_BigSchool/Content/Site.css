@@ -38,6 +38,7 @@ textarea {
 
 
     .row ul li {
+        top:20px;
         position: relative;
         margin-bottom: 30px;
         list-style: none;
@@ -53,6 +54,6 @@ textarea {
 
     .row ul li .details {
         position: absolute;
-        top: 0;
+        top: 5px;
         left: 70px;
     }
