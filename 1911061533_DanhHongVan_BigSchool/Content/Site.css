@@ -38,7 +38,7 @@ textarea {
 
 
     .row ul li {
-        top:20px;
+        top:30px;
         position: relative;
         margin-bottom: 30px;
         list-style: none;
@@ -49,11 +49,23 @@ textarea {
         background-color: #269d36;
         color: white;
         width:60px;
+       
         border-radius:8px;
     }
 
-    .row ul li .details {
+    .row ul li .details .lecturer{
         position: absolute;
-        top: 5px;
+        top: -8px;
         left: 70px;
     }
+
+        .row ul li .details .lecturer button {
+            color: blue;
+            border-color: ivory;
+        }
+
+        .row ul li .details .category {
+            position: absolute;
+            top: 25px;
+            left: 70px;
+        }
